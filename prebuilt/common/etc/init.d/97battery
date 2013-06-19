@@ -1,0 +1,28 @@
+#!/system/bin/sh
+#
+# A KANGED XY Script to:
+# Wipe Battery Stat if 100%
+#
+
+log=/data/xy/battery.log
+
+echo " " | tee -a $log
+echo "-------------------------------------------------------------" | tee -a $log
+echo "Starting Battery-calibration $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $log
+
+LEVEL=`cat /sys/class/power_supply/battery/capacity`;
+CURR_ADC=`cat /sys/class/power_supply/battery/voltage_now`;
+BATTFULL=`cat /sys/class/power_supply/battery/status`;
+
+echo "*** LEVEL: $LEVEL - CUR: $CURR_ADC - STATUS: $BATTFULL ***" | tee -a $log
+
+if [ "$LEVEL" == "100" ] && [ "$BATTFULL" == "Full" ]; then
+    rm -f /data/system/batterystats.bin;
+    echo "Battery-calibration done ..." | tee -a $log
+fi;
+
+echo "Battery-calibration finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $log
+echo "-------------------------------------------------------------" | tee -a $log
+echo " " | tee -a $log
+
+exit
