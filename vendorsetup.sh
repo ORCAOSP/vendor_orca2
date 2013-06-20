@@ -23,3 +23,8 @@ add_lunch_combo orca_find5-userdebug
 add_lunch_combo orca_jfltecan-userdebug
 add_lunch_combo orca_manta-userdebug
 add_lunch_combo orca_tilapia-userdebug
+add_lunch_combo orca_crespo-userdebug
+add_lunch_combo orca_passion-userdebug
+add_lunch_combo orca_wingray-userdebug
+add_lunch_combo orca_stingray-userdebug
+add_lunch_combo orca_evita-userdebug

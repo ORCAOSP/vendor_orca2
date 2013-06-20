@@ -22,4 +22,9 @@ $(LOCAL_DIR)/jfltecan.mk \
 $(LOCAL_DIR)/tilapia.mk \
 $(LOCAL_DIR)/t0lteatt.mk \
 $(LOCAL_DIR)/t0ltetmo.mk \
+$(LOCAL_DIR)/crespo.mk \
+$(LOCAL_DIR)/passion.mk \
+$(LOCAL_DIR)/wingray.mk \
+$(LOCAL_DIR)/stingray.mk \
+$(LOCAL_DIR)/evita.mk \
 $(LOCAL_DIR)/t0lte.mk
