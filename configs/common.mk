@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
 # CM Packages
 PRODUCT_PACKAGES += \
     Apollo \
+    CMFileManager \
     audio_effects.conf \
     DSPManager \
     libcyanogen-dsp \
