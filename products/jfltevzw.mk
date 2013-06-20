@@ -1,30 +1,26 @@
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/orca/configs/gsm.mk)
+# Inherit AOSP device configuration for jfltevzw
+$(call inherit-product, device/samsung/jfltevzw/full_jfltevzw.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := evita
+# Inherit common cdma apns
+$(call inherit-product, vendor/orca/configs/cdma.mk)
 
-# Inherit some common CM stuff.
+# Inherit common Verizon Wireless Perms and Lib
+$(call inherit-product, vendor/orca/configs/vzw.mk)
+
+# Inherit orca common bits
 $(call inherit-product, vendor/orca/configs/common.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/htc/evita/device.mk)
+# Galaxy S4 Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/s4-common
 
-# Mako Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/evita
+# Setup device specific product configuration.
+PRODUCT_NAME := orca_jfltevzw
+PRODUCT_BRAND := Samsung
+PRODUCT_DEVICE := jfltevzw
+PRODUCT_MODEL := SCH-I545
+PRODUCT_MANUFACTURER := Samsung
 
-# PA OVERLAY_TARGET
-OVERLAY_TARGET := pa_xhdpi
-
-# Device naming
-PRODUCT_DEVICE := evita
-PRODUCT_NAME := orca_evita
-PRODUCT_BRAND := htc
-PRODUCT_MODEL := One X
-PRODUCT_MANUFACTURER := HTC
-
-# Set build fingerprint / ID / Product Name etc.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_evita BUILD_FINGERPRINT=cingular_us/evita/evita:4.0.4/IMM76D/79936.7:user/release-keys PRIVATE_BUILD_DESC="2.20.502.7 CL79936 release-keys" BUILD_NUMBER=79936
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jfltevzw TARGET_DEVICE=jfltevzw BUILD_FINGERPRINT="Verizon/jfltevzw/jfltevzw:4.2.2/JDQ39/I545VRUAMDK:user/release-keys" PRIVATE_BUILD_DESC="jfltevzw-user 4.2.2 JDQ39 I545VRUAMDK release-keys"
 
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \
@@ -39,3 +35,4 @@ PRODUCT_COPY_FILES += \
     vendor/orca/prebuilt/preferences/pa_xhdpi/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
     vendor/orca/prebuilt/preferences/pa_xhdpi/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
     vendor/orca/prebuilt/preferences/pa_xhdpi/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
+

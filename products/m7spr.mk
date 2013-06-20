@@ -1,30 +1,27 @@
-# Specify phone tech before including full_phone
+# Inherit GSM common stuff
 $(call inherit-product, vendor/orca/configs/gsm.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := evita
-
-# Inherit some common CM stuff.
+# Inherit orca common bits
 $(call inherit-product, vendor/orca/configs/common.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/htc/evita/device.mk)
+$(call inherit-product, device/htc/m7spr/full_m7spr.mk)
 
-# Mako Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/evita
+# Common Overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/common
 
 # PA OVERLAY_TARGET
 OVERLAY_TARGET := pa_xhdpi
 
 # Device naming
-PRODUCT_DEVICE := evita
-PRODUCT_NAME := orca_evita
+PRODUCT_DEVICE := m7spr
+PRODUCT_NAME := orca_m7spr
 PRODUCT_BRAND := htc
-PRODUCT_MODEL := One X
+PRODUCT_MODEL := HTC One
 PRODUCT_MANUFACTURER := HTC
 
-# Set build fingerprint / ID / Product Name etc.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_evita BUILD_FINGERPRINT=cingular_us/evita/evita:4.0.4/IMM76D/79936.7:user/release-keys PRIVATE_BUILD_DESC="2.20.502.7 CL79936 release-keys" BUILD_NUMBER=79936
+# Set build fingerprint / ID / Product Name ect.
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=m7wls BUILD_ID=JZO54K BUILD_FINGERPRINT="htc/m7wls/m7wls:4.1.2/JZO54K/166937.7:user/release-keys" PRIVATE_BUILD_DESC="1.29.651.7 CL166937 release-keys"
 
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \

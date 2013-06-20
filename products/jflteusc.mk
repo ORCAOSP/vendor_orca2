@@ -1,30 +1,23 @@
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/orca/configs/gsm.mk)
+# Inherit AOSP device configuration for jflteusc
+$(call inherit-product, device/samsung/jflteusc/full_jflteusc.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := evita
+# Inherit common cdma apns
+$(call inherit-product, vendor/orca/configs/cdma.mk)
 
-# Inherit some common CM stuff.
+# Inherit orca common bits
 $(call inherit-product, vendor/orca/configs/common.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/htc/evita/device.mk)
+# Galaxy S4 Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/s4-common
 
-# Mako Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/evita
+# Setup device specific product configuration.
+PRODUCT_NAME := orca_jflteusc
+PRODUCT_BRAND := Samsung
+PRODUCT_DEVICE := jflteusc
+PRODUCT_MODEL := SCH-R970
+PRODUCT_MANUFACTURER := Samsung
 
-# PA OVERLAY_TARGET
-OVERLAY_TARGET := pa_xhdpi
-
-# Device naming
-PRODUCT_DEVICE := evita
-PRODUCT_NAME := orca_evita
-PRODUCT_BRAND := htc
-PRODUCT_MODEL := One X
-PRODUCT_MANUFACTURER := HTC
-
-# Set build fingerprint / ID / Product Name etc.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=htc_evita BUILD_FINGERPRINT=cingular_us/evita/evita:4.0.4/IMM76D/79936.7:user/release-keys PRIVATE_BUILD_DESC="2.20.502.7 CL79936 release-keys" BUILD_NUMBER=79936
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jflteusc TARGET_DEVICE=jflteusc BUILD_FINGERPRINT="samsung/jflteusc/jflteusc:4.2.2/JDQ39/R970VXUAMDB:user/release-keys" PRIVATE_BUILD_DESC="jflteusc-user 4.2.2 JDQ39 R970VXUAMDB release-keys"
 
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \

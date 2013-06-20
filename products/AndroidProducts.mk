@@ -27,4 +27,11 @@ $(LOCAL_DIR)/passion.mk \
 $(LOCAL_DIR)/wingray.mk \
 $(LOCAL_DIR)/stingray.mk \
 $(LOCAL_DIR)/evita.mk \
+$(LOCAL_DIR)/jfltetmo.mk \
+$(LOCAL_DIR)/jflteusc.mk \
+$(LOCAL_DIR)/jfltevzw.mk \
+$(LOCAL_DIR)/m7att.mk \
+$(LOCAL_DIR)/m7spr.mk \
+$(LOCAL_DIR)/m7tmo.mk \
+$(LOCAL_DIR)/m7ul.mk \
 $(LOCAL_DIR)/t0lte.mk

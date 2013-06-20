@@ -28,3 +28,10 @@ add_lunch_combo orca_passion-userdebug
 add_lunch_combo orca_wingray-userdebug
 add_lunch_combo orca_stingray-userdebug
 add_lunch_combo orca_evita-userdebug
+add_lunch_combo orca_jfltetmo-userdebug
+add_lunch_combo orca_jflteusc-userdebug
+add_lunch_combo orca_jfltevzw-userdebug
+add_lunch_combo orca_m7att-userdebug
+add_lunch_combo orca_m7spr-userdebug
+add_lunch_combo orca_m7tmo-userdebug
+add_lunch_combo orca_m7ul-userdebug
