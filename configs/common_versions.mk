@@ -9,14 +9,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=drewgaren \
     ro.goo.rom=Orca \
     ro.goo.version=$(DATE) \
-    ro.bigfoot.version=ORCA-2.2-$(TARGET_PRODUCT)-$(DATE)
+    ro.orca.version=ORCA-2.2-$(TARGET_PRODUCT)-$(DATE)
 else
 # Orca Release Candidate properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=drewgaren \
     ro.goo.rom=Orca_Nightlies \
     ro.goo.version=$(DATE) \
-    ro.bigfoot.version=Orca-2.2.0-$(TARGET_PRODUCT)-Nightly-$(DATE)
+    ro.orca.version=Orca-2.2.0-$(TARGET_PRODUCT)-Nightly-$(DATE)
 endif
 
 
