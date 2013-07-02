@@ -142,9 +142,9 @@ PRODUCT_PACKAGES += \
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.ringtone=Scarabaeus.ogg \
-    ro.config.notification_sound=Antimony.ogg \
-    ro.config.alarm_alert=Scandium.ogg
+    ro.config.ringtone=Themos.ogg \
+    ro.config.notification_sound=Tejat.ogg \
+    ro.config.alarm_alert=Oxygen.ogg
 
 # Inherit common build.prop overrides
 -include vendor/orca/configs/common_versions.mk
