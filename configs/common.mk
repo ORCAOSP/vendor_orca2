@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
 # Bigfoot Packages
 PRODUCT_PACKAGES += \
     ORCASettings \
+    SunBeam \
     Trebuchet \
     LatinImeGoogle \
     DashClock \
