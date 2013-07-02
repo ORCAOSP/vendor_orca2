@@ -19,8 +19,13 @@ PRODUCT_MANUFACTURER := Samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jflteusc TARGET_DEVICE=jflteusc BUILD_FINGERPRINT="samsung/jflteusc/jflteusc:4.2.2/JDQ39/R970VXUAMDB:user/release-keys" PRIVATE_BUILD_DESC="jflteusc-user 4.2.2 JDQ39 R970VXUAMDB release-keys"
 
+# S4 Play Edition specific packages
+PRODUCT_PACKAGES += \
+    GalleryGoogle
+    
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
     vendor/orca/prebuilt/xhdpi/bootanimation.zip:system/media/bootanimation.zip \
     vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \

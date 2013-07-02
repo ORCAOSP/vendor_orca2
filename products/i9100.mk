@@ -24,8 +24,13 @@ PRODUCT_MANUFACTURER := Samsung
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9100 TARGET_DEVICE=GT-I9100 BUILD_FINGERPRINT=samsung/GT-I9100/GT-I9100:4.1.2/JZO54K/XXLPQ:user/release-keys PRIVATE_BUILD_DESC="GT-I9100-user 4.1.2 JZO54K XXLPQ release-keys"
 PRODUCT_RELEASE_NAME := GT-I9100
 
+# S2 specific packages
+PRODUCT_PACKAGES += \
+    GalleryGoogle
+    
 # Copy hdpi specific prebuilts
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
     vendor/orca/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip \
     vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \

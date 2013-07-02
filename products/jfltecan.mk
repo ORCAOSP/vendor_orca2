@@ -24,8 +24,13 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=jfltevl TARGET_DEVICE=jfltecan BUILD_FINGERPRINT="samsung/jfltevl/jfltecan:4.2.2/JDQ39/I337MVLUAMDJ:user/release-keys" PRIVATE_BUILD_DESC="jfltevl-user 4.2.2 JDQ39 I337MVLUAMDJ release-keys"
 PRODUCT_RELEASE_NAME := jfltecan
 
+# S4 Play Edition specific packages
+PRODUCT_PACKAGES += \
+    GalleryGoogle
+    
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
     vendor/orca/prebuilt/xhdpi/bootanimation.zip:system/media/bootanimation.zip \
     vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \

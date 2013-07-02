@@ -28,10 +28,12 @@ PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=yakju BUILD_FINGERPRINT=google/yakj
 
 # Maguro specific packages
 PRODUCT_PACKAGES += \
-    Thinkfree
+    Thinkfree \
+    GalleryGoogle
 
 # Copy mako specific prebuilts
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
     vendor/orca/prebuilt/xhdpi/bootanimation.zip:system/media/bootanimation.zip \
     vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \

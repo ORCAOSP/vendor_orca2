@@ -23,8 +23,13 @@ PRODUCT_MANUFACTURER := LGE
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=occam BUILD_FINGERPRINT=google/occam/mako:4.2.2/JDQ39/573038:user/release-keys PRIVATE_BUILD_DESC="occam-user 4.2.2 JDQ39 573038 release-keys" BUILD_NUMBER=573038
 
+# Mako specific packages
+PRODUCT_PACKAGES += \
+    GalleryGoogle 
+
 # Copy Mako specific prebuilts
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
     vendor/orca/prebuilt/xhdpi/bootanimation.zip:system/media/bootanimation.zip \
     vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \
