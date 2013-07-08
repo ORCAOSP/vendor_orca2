@@ -6,7 +6,7 @@ $(call inherit-product, vendor/orca/configs/common_tablet.mk)
 PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/common_tablet
 
 # PA OVERLAY_TARGET
-OVERLAY_TARGET := pa_xhdpi
+OVERLAY_TARGET := pa_xoom
 
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := orca_wingray
@@ -23,9 +23,9 @@ PRODUCT_COPY_FILES += \
     vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \
     vendor/orca/prebuilt/preferences/images/tablet.png:system/etc/paranoid/preferences/images/tablet.png \
     vendor/orca/prebuilt/preferences/images/undefined.png:system/etc/paranoid/preferences/images/undefined.png \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/0_colors.xml:system/etc/paranoid/preferences/0_colors.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_1.xml:system/etc/paranoid/preferences/pref_1.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_2.xml:system/etc/paranoid/preferences/pref_2.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
+    vendor/orca/prebuilt/preferences/pa_xoom/0_colors.xml:system/etc/paranoid/preferences/0_colors.xml \
+    vendor/orca/prebuilt/preferences/pa_xoom/pref_1.xml:system/etc/paranoid/preferences/pref_1.xml \
+    vendor/orca/prebuilt/preferences/pa_xoom/pref_2.xml:system/etc/paranoid/preferences/pref_2.xml \
+    vendor/orca/prebuilt/preferences/pa_xoom/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
+    vendor/orca/prebuilt/preferences/pa_xoom/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
+    vendor/orca/prebuilt/preferences/pa_xoom/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
