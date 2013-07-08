@@ -1,4 +1,4 @@
-$(call inherit-product, device/motorola/stingray/full_stingray.mk)
+$(call inherit-product, device/moto/stingray/full_stingray.mk)
 
 $(call inherit-product, vendor/orca/configs/common_tablet.mk)
 
