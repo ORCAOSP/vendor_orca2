@@ -2,7 +2,7 @@
 $(call inherit-product, device/htc/passion/full_passion.mk)
 
 # Inherit Orca common bits
-$(call inherit-product, vendor/orca/configs/common.mk)
+$(call inherit-product, vendor/orca/configs/passion.mk)
 
 # Inherit GSM common stuff
 $(call inherit-product, vendor/orca/configs/gsm.mk)
@@ -21,9 +21,6 @@ PRODUCT_MODEL   := Nexus One
 PRODUCT_MANUFACTURER := HTC
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=passion BUILD_FINGERPRINT="google/passion/passion:4.2.2/JDQ39/573038:user/release-keys" PRIVATE_BUILD_DESC="passion-user 4.2.2 JDQ39 573038 release-keys" BUILD_NUMBER=573038
-
-PRODUCT_PACKAGES += \
-    Thinkfree
 
 # Copy hdpi specific prebuilts
 PRODUCT_COPY_FILES += \
