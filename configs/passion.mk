@@ -29,7 +29,6 @@ PRODUCT_PACKAGES += \
     SunBeam \
     Trebuchet \
     LatinImeGoogle \
-    DashClock \
     OrcaWallpapers \
     OrcaTools
 
