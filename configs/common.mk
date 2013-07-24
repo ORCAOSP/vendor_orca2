@@ -30,7 +30,6 @@ PRODUCT_PACKAGES += \
     ORCASettings \
     SunBeam \
     Trebuchet \
-    LatinImeGoogle \
     DashClock \
     Helium \
     OrcaWallpapers \
