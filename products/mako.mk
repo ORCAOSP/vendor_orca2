@@ -21,7 +21,7 @@ PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 
 # Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=occam BUILD_FINGERPRINT=google/occam/mako:4.2.2/JDQ39/573038:user/release-keys PRIVATE_BUILD_DESC="occam-user 4.2.2 JDQ39 573038 release-keys" BUILD_NUMBER=573038
+PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=occam BUILD_FINGERPRINT=google/occam/mako:4.3/JWR66V/737497:user/release-keys PRIVATE_BUILD_DESC="occam-user 4.3 JWR66V 737497 release-keys" BUILD_NUMBER=737497
 
 # Mako specific packages
 PRODUCT_PACKAGES += \
