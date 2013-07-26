@@ -151,65 +151,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # T-Mobile theme engine
 include vendor/orca/configs/themes_common.mk
 
-# Lets Use Android 4.3 Ringtones
-PRODUCT_COPY_FILES +=  \
-    vendor/orca/prebuilt/common/media/audio/alarms/Argon.ogg:system/media/audio/alarms/Argon.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Carbon.ogg:system/media/audio/alarms/Carbon.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Helium.ogg:system/media/audio/alarms/Helium.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Krypton.ogg:system/media/audio/alarms/Krypton.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Neon.ogg:system/media/audio/alarms/Neon.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Osmium.ogg:system/media/audio/alarms/Osmium.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Oxygen.ogg:system/media/audio/alarms/Oxygen.ogg \
-    vendor/orca/prebuilt/common/media/audio/alarms/Platinum.ogg:system/media/audio/alarms/Platinum.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Adara.ogg:system/media/audio/notifications/Adara.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Alya.ogg:system/media/audio/notifications/Alya.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Arcturus.ogg:system/media/audio/notifications/Arcturus.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Capella.ogg:system/media/audio/notifications/Capella.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/CetiAlpha.ogg:system/media/audio/notifications/CetiAlpha.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Hojus.ogg:system/media/audio/notifications/Hojus.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Mira.ogg:system/media/audio/notifications/Mira.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Pollux.ogg:system/media/audio/notifications/Pollux.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Procyon.ogg:system/media/audio/notifications/Procyon.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Shaula.ogg:system/media/audio/notifications/Shaula.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Spica.ogg:system/media/audio/notifications/Spica.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Syrma.ogg:system/media/audio/notifications/Syrma.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Talitha.ogg:system/media/audio/notifications/Talitha.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Tejat.ogg:system/media/audio/notifications/Tejat.ogg \
-    vendor/orca/prebuilt/common/media/audio/notifications/Vega.ogg:system/media/audio/notifications/Vega.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Andromeda.ogg:system/media/audio/ringtones/Andromeda.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Aquila.ogg:system/media/audio/ringtones/Aquila.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/ArgoNavis.ogg:system/media/audio/ringtones/ArgoNavis.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Atria.ogg:system/media/audio/ringtones/Atria.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Centaurus.ogg:system/media/audio/ringtones/Centaurus.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Girtab.ogg:system/media/audio/ringtones/Girtab.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Hydra.ogg:system/media/audio/ringtones/Hydra.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Kuma.ogg:system/media/audio/ringtones/Kuma.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Machina.ogg:system/media/audio/ringtones/Machina.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Orion.ogg:system/media/audio/ringtones/Orion.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Pegasus.ogg:system/media/audio/ringtones/Pegasus.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Pyxis.ogg:system/media/audio/ringtones/Pyxis.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Rasalas.ogg:system/media/audio/ringtones/Rasalas.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/RobotsforEveryone.ogg:system/media/audio/ringtones/RobotsforEveryone.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Scarabaeus.ogg:system/media/audio/ringtones/Scarabaeus.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Sceptrum.ogg:system/media/audio/ringtones/Sceptrum.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Solarium.ogg:system/media/audio/ringtones/Solarium.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/SpagnolaOrchestration.ogg:system/media/audio/ringtones/SpagnolaOrchestration.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Themos.ogg:system/media/audio/ringtones/Themos.ogg \
-    vendor/orca/prebuilt/common/media/audio/ringtones/Zeta.ogg:system/media/audio/ringtones/Zeta.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/camera_click.ogg:system/media/audio/ui/camera_click.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/camera_focus.ogg:system/media/audio/ui/camera_focus.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/Dock.ogg:system/media/audio/ui/Dock.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/Effect_Tick.ogg:system/media/audio/ui/Effect_Tick.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/KeypressDelete.ogg:system/media/audio/ui/KeypressDelete.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/KeypressReturn.ogg:system/media/audio/ui/KeypressReturn.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/KeypressSpacebar.ogg:system/media/audio/ui/KeypressSpacebar.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/KeypressStandard.ogg:system/media/audio/ui/KeypressStandard.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/Lock.ogg:system/media/audio/ui/Lock.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/LowBattery.ogg:system/media/audio/ui/LowBattery.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/PowerOff.ogg:system/media/audio/ui/PowerOff.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/Unlock.ogg:system/media/audio/ui/Unlock.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/VideoRecord.ogg:system/media/audio/ui/VideoRecord.ogg \
-    vendor/orca/prebuilt/common/media/audio/ui/WirelessChargingStarted.ogg:system/media/audio/ui/WirelessChargingStarted.ogg     
+# Bring in all audio files
+include frameworks/base/data/sounds/AllAudio.mk    
 
 # Google Proprietaries
 PRODUCT_COPY_FILES +=  \
