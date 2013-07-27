@@ -1,35 +1,53 @@
-# Inherit AOSP device configuration for manta
-$(call inherit-product, device/samsung/manta/full_manta.mk)
+# Copyright (C) 2012 ParanoidAndroid Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Inherit orca common_tablet bits
-$(call inherit-product, vendor/orca/configs/common_tablet.mk)
+# Check for target product
+ifeq (pa_manta,$(TARGET_PRODUCT))
 
-# Manta Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/manta
+# Define PA bootanimation size
+PARANOID_BOOTANIMATION_NAME := XHDPI
 
-# PA OVERLAY_TARGET
+# OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_manta
 
-# Setup device specific product configuration
-PRODUCT_NAME := orca_manta
+# Build paprefs from sources
+PREFS_FROM_SOURCE ?= true
+
+# Include ParanoidAndroid common configuration
+include vendor/pa/config/pa_common.mk
+
+# Inherit AOSP device configuration
+$(call inherit-product, device/samsung/manta/full_manta.mk)
+
+# Product Package Extras - Repos can be added manually or via addprojects.py
+-include vendor/pa/packages/manta.mk
+
+# CM Package Extras
+-include vendor/pa/packages/cm.mk
+
+# Override AOSP build properties
+PRODUCT_NAME := pa_manta
 PRODUCT_BRAND := google
-PRODUCT_DEVICE := manta
 PRODUCT_MODEL := Nexus 10
-PRODUCT_MANUFACTURER := samsung
+PRODUCT_MANUFACTURER := Samsung
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=mantaray BUILD_FINGERPRINT="google/mantaray/manta:4.2.2/JDQ39/573038:user/release-keys" PRIVATE_BUILD_DESC="mantaray-user 4.2.2 JDQ39 573038 release-keys"
 
-PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=mantaray BUILD_FINGERPRINT=google/mantaray/manta:4.2.1/JOP40D/533553:user/release-keys PRIVATE_BUILD_DESC="mantaray-user 4.2.1 JOP40D 533553 release-keys" BUILD_NUMBER=533553
+# Update local_manifest.xml
+GET_VENDOR_PROPS := $(shell vendor/pa/tools/getvendorprops.py $(PRODUCT_NAME))
+GET_PROJECT_RMS := $(shell vendor/pa/tools/removeprojects.py $(PRODUCT_NAME))
+GET_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py $(PRODUCT_NAME))
+GET_CM_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py cm.adds)
 
-# Copy bootanimation.zip
-PRODUCT_COPY_FILES += \
-    vendor/orca/prebuilt/nexus/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
-    vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \
-    vendor/orca/prebuilt/preferences/images/tablet.png:system/etc/paranoid/preferences/images/tablet.png \
-    vendor/orca/prebuilt/preferences/images/undefined.png:system/etc/paranoid/preferences/images/undefined.png \
-    vendor/orca/prebuilt/preferences/pa_manta/0_colors.xml:system/etc/paranoid/preferences/0_colors.xml \
-    vendor/orca/prebuilt/preferences/pa_manta/pref_1.xml:system/etc/paranoid/preferences/pref_1.xml \
-    vendor/orca/prebuilt/preferences/pa_manta/pref_2.xml:system/etc/paranoid/preferences/pref_2.xml \
-    vendor/orca/prebuilt/preferences/pa_manta/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
-    vendor/orca/prebuilt/preferences/pa_manta/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
-    vendor/orca/prebuilt/preferences/pa_manta/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
+endif
 

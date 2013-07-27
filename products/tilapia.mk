@@ -1,35 +1,44 @@
-# Inherit AOSP device configuration for grouper
-$(call inherit-product, device/asus/tilapia/full_tilapia.mk)
+# Copyright (C) 2012 ParanoidAndroid Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Inherit orca common_tablet bits
-$(call inherit-product, vendor/orca/configs/common_tablet.mk)
+# Check for target product
+ifeq (pa_tilapia,$(TARGET_PRODUCT))
 
-# Grouper Overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/grouper
+# Define PA bootanimation size
+PARANOID_BOOTANIMATION_NAME := XHDPI
 
-# PA OVERLAY_TARGET
+# OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_tvdpi
 
-# Setup device specific product configuration.
-PRODUCT_NAME := orca_tilapia
-PRODUCT_BRAND := google
-PRODUCT_DEVICE := grouper
+# Build paprefs from sources
+PREFS_FROM_SOURCE ?= true
+
+# Include ParanoidAndroid common configuration
+include vendor/pa/config/pa_common.mk
+
+# Inherit AOSP device configuration
+$(call inherit-product, device/asus/tilapia/full_tilapia.mk)
+
+# Override AOSP build properties
+PRODUCT_NAME := pa_tilapia
+PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 7
-PRODUCT_MANUFACTURER := asus
+PRODUCT_MANUFACTURER := Asus
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=nakasi BUILD_FINGERPRINT="google/nakasig/tilapia:4.2/JOP40C/527662:user/release-keys"
+PRIVATE_BUILD_DESC="nakasi-user 4.2 JOP40C 527662 release-keys"
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES := PRODUCT_NAME=nakasi BUILD_FINGERPRINT=google/nakasi/grouper:4.1.1/JRO03H/405518:user/release-keys PRIVATE_BUILD_DESC="nakasi-user 4.1.1 JRO03H 405518 release-keys" BUILD_NUMBER=405518
+GET_VENDOR_PROPS := $(shell vendor/pa/tools/getvendorprops.py $(PRODUCT_NAME))
 
-# Copy Mako specific prebuilts
-PRODUCT_COPY_FILES += \
-    vendor/orca/prebuilt/nexus/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
-    vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \
-    vendor/orca/prebuilt/preferences/images/tablet.png:system/etc/paranoid/preferences/images/tablet.png \
-    vendor/orca/prebuilt/preferences/images/undefined.png:system/etc/paranoid/preferences/images/undefined.png \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/0_colors.xml:system/etc/paranoid/preferences/0_colors.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_1.xml:system/etc/paranoid/preferences/pref_1.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_2.xml:system/etc/paranoid/preferences/pref_2.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
+endif
+

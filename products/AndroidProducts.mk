@@ -1,37 +1,63 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/d2att.mk \
-$(LOCAL_DIR)/d2tmo.mk \
-$(LOCAL_DIR)/d2vzw.mk \
-$(LOCAL_DIR)/d2mtr.mk \
-$(LOCAL_DIR)/grouper.mk \
-$(LOCAL_DIR)/i605.mk \
-$(LOCAL_DIR)/i9100.mk \
-$(LOCAL_DIR)/i9100g.mk \
-$(LOCAL_DIR)/i9300.mk \
-$(LOCAL_DIR)/l900.mk \
-$(LOCAL_DIR)/maguro.mk \
-$(LOCAL_DIR)/mako.mk \
-$(LOCAL_DIR)/n7000.mk \
-$(LOCAL_DIR)/n7100.mk \
-$(LOCAL_DIR)/quincyatt.mk \
-$(LOCAL_DIR)/toro.mk \
-$(LOCAL_DIR)/toroplus.mk \
-$(LOCAL_DIR)/d2usc.mk \
-$(LOCAL_DIR)/find5.mk \
-$(LOCAL_DIR)/manta.mk \
-$(LOCAL_DIR)/jfltecan.mk \
-$(LOCAL_DIR)/tilapia.mk \
-$(LOCAL_DIR)/t0lteatt.mk \
-$(LOCAL_DIR)/t0ltetmo.mk \
-$(LOCAL_DIR)/crespo.mk \
-$(LOCAL_DIR)/passion.mk \
-$(LOCAL_DIR)/wingray.mk \
-$(LOCAL_DIR)/stingray.mk \
-$(LOCAL_DIR)/evita.mk \
-$(LOCAL_DIR)/jfltetmo.mk \
-$(LOCAL_DIR)/jflteusc.mk \
-$(LOCAL_DIR)/jfltevzw.mk \
-$(LOCAL_DIR)/m7att.mk \
-$(LOCAL_DIR)/m7spr.mk \
-$(LOCAL_DIR)/m7tmo.mk \
-$(LOCAL_DIR)/m7ul.mk \
-$(LOCAL_DIR)/t0lte.mk
+ifeq (grouper,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/grouper.mk
+endif
+ifeq (i9100,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/i9100.mk
+endif
+ifeq (i9300,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/i9300.mk
+endif
+ifeq (i9305,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/i9305.mk
+endif
+ifeq (maguro,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/maguro.mk
+endif
+ifeq (mako,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/mako.mk
+endif
+ifeq (manta,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/manta.mk
+endif
+ifeq (n7100,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/n7100.mk
+endif
+ifeq (tf700t,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/tf700t.mk
+endif
+ifeq (tilapia,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/tilapia.mk
+endif
+ifeq (toro,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/toro.mk
+endif
+ifeq (toroplus,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/toroplus.mk
+endif
+ifeq (bravo,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/bravo.mk
+endif
+ifeq (crespo,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/crespo.mk
+endif
+ifeq (endeavoru,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/endeavoru.mk
+endif
+ifeq (d710,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/d710.mk
+endif
+ifeq (i605,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/i605.mk
+endif
+ifeq (l900,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/l900.mk
+endif
+ifeq (find5,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/find5.mk
+endif
+ifeq (m7tmo,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/m7tmo.mk
+endif
+ifeq (m7ul,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/m7ul.mk
+endif

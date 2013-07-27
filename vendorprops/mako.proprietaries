@@ -1,0 +1,100 @@
+[
+    {
+        "remote":       "github",
+        "account":      "ParanoidAndroid",
+        "repository":   "proprietary_vendor_lge",
+        "target_path":  "vendor/lge",
+        "revision":     "jellybean"
+    },
+    {
+        "remote":       "github",
+        "account":      "ParanoidAndroid",
+        "repository":   "proprietary_vendor_broadcom",
+        "target_path":  "vendor/broadcom",
+        "revision":     "jellybean"
+    },
+    {
+        "remote":       "github",
+        "account":      "ParanoidAndroid",
+        "repository":   "proprietary_vendor_qcom",
+        "target_path":  "vendor/qcom",
+        "revision":     "jellybean"
+    },
+    {
+        "remote":       "github",
+        "account":      "ParanoidAndroid",
+        "repository":   "proprietary_vendor_widevine",
+        "target_path":  "vendor/widevine",
+        "revision":     "jellybean"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "device",
+        "repository":   "lge/mako-kernel",
+        "target_path":  "kernel/lge/mako",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/audio",
+        "target_path":  "hardware/qcom/audio",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/bt",
+        "target_path":  "hardware/qcom/bt",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/camera",
+        "target_path":  "hardware/qcom/camera",
+        "branch":       "jb-mr2.0-release"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/display",
+        "target_path":  "hardware/qcom/display",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/gps",
+        "target_path":  "hardware/qcom/gps",
+        "branch":       "jb-mr2.0-release"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/media",
+        "target_path":  "hardware/qcom/media",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/power",
+        "target_path":  "hardware/qcom/power",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/wlan",
+        "target_path":  "hardware/qcom/wlan",
+        "branch":       "master"
+    },
+    {
+        "remote":       "aosp",
+        "account":      "platform",
+        "repository":   "hardware/qcom/msm8960/",
+        "target_path":  "hardware/qcom/msm8960/",
+        "branch":       "master"
+    }
+]

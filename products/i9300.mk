@@ -1,43 +1,52 @@
-# Inherit AOSP device configuration for galaxys3.
-$(call inherit-product, device/samsung/i9300/full_i9300.mk)
+# Copyright (C) 2012 ParanoidAndroid Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Inherit GSM common stuff
-$(call inherit-product, vendor/orca/configs/gsm.mk)
+# Check for target product
+ifeq (pa_i9300,$(TARGET_PRODUCT))
 
-# Inherit orca common bits
-$(call inherit-product, vendor/orca/configs/common.mk)
+# Define PA bootanimation size
+PARANOID_BOOTANIMATION_NAME := XHDPI
 
-# S3 overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/s3-common
-
-# PA OVERLAY_TARGET
+# OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_i9300
 
-# Setup device specific product configuration.
-PRODUCT_DEVICE := i9300
-PRODUCT_NAME := orca_i9300
-PRODUCT_BRAND := Samsung
+# Build paprefs from sources
+PREFS_FROM_SOURCE ?= true
+
+# Include ParanoidAndroid common configuration
+include vendor/pa/config/pa_common.mk
+
+# Inherit AOSP device configuration
+$(call inherit-product, device/samsung/i9300/full_i9300.mk)
+
+# Product Package Extras - Repos can be added manually or via addprojects.py
+-include vendor/pa/packages/i9300.mk
+
+# CM Package Extras
+-include vendor/pa/packages/cm.mk
+
+# Override AOSP build properties
+PRODUCT_NAME := pa_i9300
+PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-I9300
-PRODUCT_MANUFACTURER := Samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=m0xx TARGET_DEVICE=m0 BUILD_FINGERPRINT="samsung/m0xx/m0:4.1.1/JRO03C/I9300XXDLIB:user/release-keys" PRIVATE_BUILD_DESC="m0xx-user 4.1.1 JRO03C I9300XXDLIB release-keys"
 
-# Set build fingerprint / ID / Product Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=m0xx TARGET_DEVICE=m0 BUILD_FINGERPRINT="samsung/m0xx/m0:4.1.2/JZO54K/I9300XXDLIB:user/release-keys" PRIVATE_BUILD_DESC="m0xx-user 4.1.2 JZO54K I9300XXDLIB release-keys"
+# Update local_manifest.xml
+GET_VENDOR_PROPS := $(shell vendor/pa/tools/getvendorprops.py $(PRODUCT_NAME))
+GET_PROJECT_RMS := $(shell vendor/pa/tools/removeprojects.py $(PRODUCT_NAME))
+GET_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py $(PRODUCT_NAME))
+GET_CM_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py cm.adds)
 
-# SIII specific packages
-PRODUCT_PACKAGES += \
-    GalleryGoogle 
-    
-# Copy maguro specific prebuilt files
-PRODUCT_COPY_FILES += \
-    vendor/orca/prebuilt/common/lib/liblightcycle.so:system/lib/liblightcycle.so \
-    vendor/orca/prebuilt/xhdpi/bootanimation.zip:system/media/bootanimation.zip \
-    vendor/orca/prebuilt/preferences/images/phablet.png:system/etc/paranoid/preferences/images/phablet.png \
-    vendor/orca/prebuilt/preferences/images/phone.png:system/etc/paranoid/preferences/images/phone.png \
-    vendor/orca/prebuilt/preferences/images/tablet.png:system/etc/paranoid/preferences/images/tablet.png \
-    vendor/orca/prebuilt/preferences/images/undefined.png:system/etc/paranoid/preferences/images/undefined.png \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/0_colors.xml:system/etc/paranoid/preferences/0_colors.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_1.xml:system/etc/paranoid/preferences/pref_1.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_2.xml:system/etc/paranoid/preferences/pref_2.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_3.xml:system/etc/paranoid/preferences/pref_3.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_4.xml:system/etc/paranoid/preferences/pref_4.xml \
-    vendor/orca/prebuilt/preferences/pa_xhdpi/pref_5.xml:system/etc/paranoid/preferences/pref_5.xml
+endif
