@@ -1,8 +1,8 @@
 # Set audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.ringtone=Themos.ogg \
-    ro.config.notification_sound=Tejat.ogg \
-    ro.config.alarm_alert=Oxygen.ogg
+  ro.config.ringtone=Themos.ogg \
+  ro.config.notification_sound=Proxima.ogg \
+  ro.config.alarm_alert=Cesium.ogg
 
 # Orca Packages
 PRODUCT_PACKAGES += \
@@ -72,7 +72,7 @@ endif
 # device specific prebuilts
 -include vendor/orca/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
 
-BOARD := $(subst pa_,,$(TARGET_PRODUCT))
+BOARD := $(subst orca_,,$(TARGET_PRODUCT))
 
 # ParanoidAndroid Overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/common
@@ -81,9 +81,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(TARGET_PRODUCT)
 # Allow device family to add overlays and use a same prop.conf
 ifneq ($(OVERLAY_TARGET),)
     PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(OVERLAY_TARGET)
-    PA_CONF_SOURCE := $(OVERLAY_TARGET)
+    ORCA_CONF_SOURCE := $(OVERLAY_TARGET)
 else
-    PA_CONF_SOURCE := $(TARGET_PRODUCT)
+    ORCA_CONF_SOURCE := $(TARGET_PRODUCT)
 endif
 
 PRODUCT_COPY_FILES += \
@@ -106,7 +106,7 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.modversion=$(ORCA_VERSION) \
-  ro.orca.family=$(ORCA_CONF_SOURCE) \
+  ro.orca.family=$(PA_CONF_SOURCE) \
   ro.orca.version=$(VERSION) \
   ro.papref.revision=$(PA_PREF_REVISION)
 
@@ -114,6 +114,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifneq ($(DEVELOPER_VERSION),true)
     PRODUCT_PROPERTY_OVERRIDES += \
       ro.goo.developerid=drewgaren \
-      ro.goo.rom=Orca \
+      ro.goo.rom=Orca_Nightlies \
       ro.goo.version=$(shell date +%s)
 endif
