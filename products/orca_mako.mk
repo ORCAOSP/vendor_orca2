@@ -25,10 +25,10 @@ OVERLAY_TARGET := pa_xhdpi
 PREFS_FROM_SOURCE ?= true
 
 # Include Orca common configuration
-include vendor/orca/config/common.mk
+include vendor/orca/config/orca_common.mk
 
 # Inherit GSM common stuff
-$(call inherit-product, vendor/orca/configs/gsm.mk)
+$(call inherit-product, vendor/orca/config/gsm.mk)
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/lge/mako/full_mako.mk)
