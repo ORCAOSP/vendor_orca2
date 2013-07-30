@@ -27,6 +27,9 @@ PREFS_FROM_SOURCE ?= true
 # Include Orca common configuration
 include vendor/orca/config/common.mk
 
+# Inherit GSM common stuff
+$(call inherit-product, vendor/orca/configs/gsm.mk)
+
 # Inherit AOSP device configuration
 $(call inherit-product, device/lge/mako/full_mako.mk)
 
