@@ -1,4 +1,4 @@
-# Copyright (C) 2012 ParanoidAndroid Project
+# Copyright (C) 2013 The Orca Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -43,7 +43,7 @@ PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.2/JOP40C/527662:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.2 JOP40C 527662 release-keys"
 
-# Update local_manifest.xml
+# Check For Mako Updates and Update local_manifest.xml
 GET_VENDOR_PROPS := $(shell vendor/orca/tools/getvendorprops.py $(PRODUCT_NAME))
 GET_PROJECT_RMS := $(shell vendor/orca/tools/removeprojects.py $(PRODUCT_NAME))
 GET_PROJECT_ADDS := $(shell vendor/orca/tools/addprojects.py $(PRODUCT_NAME))
