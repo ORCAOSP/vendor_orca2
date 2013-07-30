@@ -7,6 +7,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Orca Packages
 PRODUCT_PACKAGES += \
     OrcaWallpapers \
+    Focal \
     LockClock 
 
 # Goo Manager
