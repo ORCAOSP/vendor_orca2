@@ -79,12 +79,15 @@ BOARD := $(subst orca_,,$(TARGET_PRODUCT))
 PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/common
 PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(TARGET_PRODUCT)
 
+# ParanoidAndroid Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/prebuilt/preferences/$(TARGET_PRODUCT)
+
 # Allow device family to add overlays and use a same prop.conf
 ifneq ($(OVERLAY_TARGET),)
     PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(OVERLAY_TARGET)
-    ORCA_CONF_SOURCE := $(OVERLAY_TARGET)
+    PA_CONF_SOURCE := $(OVERLAY_TARGET)
 else
-    ORCA_CONF_SOURCE := $(TARGET_PRODUCT)
+    PA_CONF_SOURCE := $(TARGET_PRODUCT)
 endif
 
 PRODUCT_COPY_FILES += \
