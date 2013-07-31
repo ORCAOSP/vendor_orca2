@@ -11,8 +11,9 @@ PRODUCT_PACKAGES += \
     PerformanceControl \
     LockClock 
 
-# Goo Manager
+# APPS TO COPY
 PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/apk/ParanoidPreferences.apk:system/app/ParanoidPreferences.apk \
     vendor/orca/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk
         
 # init.d support
