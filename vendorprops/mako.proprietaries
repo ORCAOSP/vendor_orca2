@@ -1,38 +1,38 @@
 [
     {
-        "remote":       "github",
-        "account":      "ParanoidAndroid",
-        "repository":   "proprietary_vendor_lge",
+        "remote":       "gh",
+        "account":      "ORCAOSP",
+        "repository":   "vendor_lge",
         "target_path":  "vendor/lge",
-        "revision":     "jellybean"
+        "revision":     "orca3"
     },
     {
-        "remote":       "github",
+        "remote":       "gh",
         "account":      "ParanoidAndroid",
         "repository":   "proprietary_vendor_broadcom",
         "target_path":  "vendor/broadcom",
         "revision":     "jellybean"
     },
     {
-        "remote":       "github",
+        "remote":       "gh",
         "account":      "ParanoidAndroid",
         "repository":   "proprietary_vendor_qcom",
         "target_path":  "vendor/qcom",
         "revision":     "jellybean"
     },
     {
-        "remote":       "github",
+        "remote":       "gh",
         "account":      "ParanoidAndroid",
         "repository":   "proprietary_vendor_widevine",
         "target_path":  "vendor/widevine",
         "revision":     "jellybean"
     },
     {
-        "remote":       "aosp",
-        "account":      "device",
-        "repository":   "lge/mako-kernel",
+        "remote":       "gh",
+        "account":      "ParanoidAndroid",
+        "repository":   "lge-kernel-mako",
         "target_path":  "kernel/lge/mako",
-        "branch":       "master"
+        "branch":       "jb43"
     },
     {
         "remote":       "aosp",
@@ -54,13 +54,6 @@
         "repository":   "hardware/qcom/camera",
         "target_path":  "hardware/qcom/camera",
         "branch":       "jb-mr2.0-release"
-    },
-    {
-        "remote":       "aosp",
-        "account":      "platform",
-        "repository":   "hardware/qcom/display",
-        "target_path":  "hardware/qcom/display",
-        "branch":       "master"
     },
     {
         "remote":       "aosp",
@@ -88,13 +81,6 @@
         "account":      "platform",
         "repository":   "hardware/qcom/wlan",
         "target_path":  "hardware/qcom/wlan",
-        "branch":       "master"
-    },
-    {
-        "remote":       "aosp",
-        "account":      "platform",
-        "repository":   "hardware/qcom/msm8960/",
-        "target_path":  "hardware/qcom/msm8960/",
         "branch":       "master"
     }
 ]
