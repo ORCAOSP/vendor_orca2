@@ -10,10 +10,12 @@ PRODUCT_PACKAGES += \
     Focal \
     Torch \
     LockClock 
+
+# More Packages
+PRODUCT_PACKAGES += \
     Apollo \
     CMFileManager \
-    DSPManager \
-    libcyanogen-dsp
+    DSPManager 
 
 # APPS TO COPY
 PRODUCT_COPY_FILES += \
