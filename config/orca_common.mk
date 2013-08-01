@@ -14,8 +14,7 @@ PRODUCT_PACKAGES += \
 # More Packages
 PRODUCT_PACKAGES += \
     Apollo \
-    CMFileManager \
-    DSPManager 
+    CMFileManager 
 
 # APPS TO COPY
 PRODUCT_COPY_FILES += \
