@@ -41,12 +41,6 @@ PRODUCT_NAME := orca_mako
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.2/JOP40C/527662:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.2 JOP40C 527662 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.3/JSS15J/737497:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.3 JSS15J 737497 release-keys"
 
-# Check For Mako Updates and Update local_manifest.xml
-GET_VENDOR_PROPS := $(shell vendor/orca/tools/getvendorprops.py $(PRODUCT_NAME))
-GET_PROJECT_RMS := $(shell vendor/orca/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/orca/tools/addprojects.py $(PRODUCT_NAME))
-
-endif
 

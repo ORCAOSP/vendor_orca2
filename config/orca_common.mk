@@ -8,18 +8,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     OrcaWallpapers \
     Focal \
-    PerformanceControl \
+    Torch \
     LockClock 
+    Apollo \
+    CMFileManager \
+    DSPManager \
+    libcyanogen-dsp
 
 # APPS TO COPY
 PRODUCT_COPY_FILES += \
-    vendor/orca/prebuilt/common/apk/ParanoidPreferences.apk:system/app/ParanoidPreferences.apk \
     vendor/orca/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk
         
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/orca/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/orca/prebuilt/common/etc/init.pa.rc:root/init.pa.rc
+    vendor/orca/prebuilt/common/etc/init.orca.rc:root/init.orca.rc
 
 # userinit support
 PRODUCT_COPY_FILES += \
@@ -61,11 +64,12 @@ else
         vendor/orca/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
-# T-Mobile theme engine
-include vendor/orca/config/themes_common.mk
-
-# embed superuser into settings 
+# SuperUser
 SUPERUSER_EMBEDDED := true
+SUPERUSER_PACKAGE_PREFIX := com.android.settings.orca.superuser
+
+ PRODUCT_PACKAGES += \
+        su
 
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
@@ -114,7 +118,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.modversion=$(ORCA_VERSION) \
   ro.orca.family=$(PA_CONF_SOURCE) \
   ro.orca.version=$(VERSION) \
-  ro.papref.revision=$(PA_PREF_REVISION)
+  ro.papref.revision=$(PA_PREF_REVISION) 
+
 
 # goo.im properties
 ifneq ($(DEVELOPER_VERSION),true)

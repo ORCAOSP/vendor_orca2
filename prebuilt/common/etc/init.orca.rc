@@ -1,5 +1,11 @@
 # Extras
 
+# su daemon
+service su_daemon /system/xbin/su --daemon
+    class main
+    oneshot
+    disabled
+    
 on init
     export ANDROID_CACHE /cache
     export TERMINFO /system/etc/terminfo
@@ -13,6 +19,7 @@ on post-fs-data
 on boot
     # Run sysinit
     start sysinit
+    start su_daemon
 
     chown system system /sys/block/mmcblk0/queue/scheduler
     chmod 0664 /sys/block/mmcblk0/queue/scheduler
