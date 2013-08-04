@@ -1,7 +1,6 @@
 [
     {
-        "remote":       "gh",
-        "account":      "ORCAOSP",
+        "remote":       "dg",
         "repository":   "vendor_lge",
         "target_path":  "vendor/lge",
         "revision":     "orca3"
@@ -33,6 +32,12 @@
         "repository":   "lge-kernel-mako",
         "target_path":  "kernel/lge/mako",
         "branch":       "jb43"
+    },
+    {
+    	"remote":       "dg",
+		"repository":   "android_device_lge_mako-WIP",
+		"target_path":  "device/lge/mako",
+		"revision":     "jb43"
     },
     {
         "remote":       "aosp",
