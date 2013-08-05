@@ -4,6 +4,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.config.notification_sound=Proxima.ogg \
   ro.config.alarm_alert=Cesium.ogg
 
+# Orca Packages
+PRODUCT_PACKAGES += \
+    OrcaWallpapers \
+    Focal \
+    Torch \
+    LockClock 
+
+# More Packages
+PRODUCT_PACKAGES += \
+    Apollo \
+    CMFileManager 
+
+# APPS TO COPY
+PRODUCT_COPY_FILES += \
+    vendor/orca/prebuilt/common/apk/GooManager.apk:system/app/GooManager.apk
+    
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/orca/prebuilt/common/bin/sysinit:system/bin/sysinit \

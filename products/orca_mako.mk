@@ -28,7 +28,7 @@ PREFS_FROM_SOURCE ?= true
 include vendor/orca/config/orca_common.mk
 
 # Inherit GSM common stuff
-$(call inherit-product, vendor/orca/config/gsm.mk)
+include vendor/orca/config/gsm.mk
 
 # Override AOSP build properties
 PRODUCT_NAME := orca_mako

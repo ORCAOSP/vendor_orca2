@@ -4,3 +4,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     gsm.current.phone-type=1
+
+# Packages
+PRODUCT_PACKAGES += \
+    Stk \
+    CellBroadcastReceiver
