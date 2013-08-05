@@ -6,18 +6,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/pa/prebuilt/common/etc/init.pa.rc:root/init.pa.rc
+    vendor/orca/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/orca/prebuilt/common/etc/init.orca.rc:root/init.orca.rc
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/orca/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/pa/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/pa/prebuilt/common/bin/50-backupScript.sh:system/addon.d/50-backupScript.sh
+    vendor/orca/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/orca/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/orca/prebuilt/common/bin/50-backupScript.sh:system/addon.d/50-backupScript.sh
 
 # Bring in all video files
 $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
@@ -25,7 +25,7 @@ $(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
 # Exclude prebuilt paprefs from builds if the flag is set
 ifneq ($(PREFS_FROM_SOURCE),true)
     PRODUCT_COPY_FILES += \
-        vendor/pa/prebuilt/common/apk/ParanoidPreferences.apk:system/app/ParanoidPreferences.apk
+        vendor/orca/prebuilt/common/apk/ParanoidPreferences.apk:system/app/ParanoidPreferences.apk
 else
     # Build paprefs from sources
     PRODUCT_PACKAGES += \
@@ -36,12 +36,12 @@ endif
 PRODUCT_PACKAGES += \
     ParanoidOTA
 
-ifneq ($(PARANOID_BOOTANIMATION_NAME),)
+ifneq ($(ORCA_BOOTANIMATION_NAME),)
     PRODUCT_COPY_FILES += \
-        vendor/pa/prebuilt/common/bootanimation/$(PARANOID_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+        vendor/orca/prebuilt/common/bootanimation/$(PARANOID_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 else
     PRODUCT_COPY_FILES += \
-        vendor/pa/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
+        vendor/orca/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
 # embed superuser into settings 
@@ -50,13 +50,13 @@ SUPERUSER_EMBEDDED := true
         su
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
-    -include vendor/pa/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
+    -include vendor/orca/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
 endif
 
 # device specific prebuilts
--include vendor/pa/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
+-include vendor/orca/prebuilt/$(TARGET_PRODUCT)/prebuilt.mk
 
-BOARD := $(subst pa_,,$(TARGET_PRODUCT))
+BOARD := $(subst orca_,,$(TARGET_PRODUCT))
 
 # ParanoidAndroid Overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/common
@@ -64,41 +64,41 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/$(TARGET_PRODUCT)
 
 # Allow device family to add overlays and use a same prop.conf
 ifneq ($(OVERLAY_TARGET),)
-    PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/$(OVERLAY_TARGET)
+    PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(OVERLAY_TARGET)
     PA_CONF_SOURCE := $(OVERLAY_TARGET)
 else
     PA_CONF_SOURCE := $(TARGET_PRODUCT)
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
-    vendor/pa/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
+    vendor/orca/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/properties.conf \
+    vendor/orca/prebuilt/$(PA_CONF_SOURCE).conf:system/etc/paranoid/backup.conf
 
-PA_VERSION_MAJOR = 3
-PA_VERSION_MINOR = 9
-PA_VERSION_MAINTENANCE = 2
+ORCA_VERSION_MAJOR = 3
+ORCA_VERSION_MINOR = 0
+ORCA_VERSION_MAINTENANCE = 2
 PA_PREF_REVISION = 1
 
-TARGET_CUSTOM_RELEASETOOL := source vendor/pa/tools/squisher
+TARGET_CUSTOM_RELEASETOOL := source vendor/orca/tools/squisher
 
-VERSION := $(PA_VERSION_MAJOR).$(PA_VERSION_MINOR)$(PA_VERSION_MAINTENANCE)
+VERSION := $(ORCA_VERSION_MAJOR).$(ORCA_VERSION_MINOR)$(ORCA_VERSION_MAINTENANCE)
 ifeq ($(DEVELOPER_VERSION),true)
-    PA_VERSION := dev_$(BOARD)-$(VERSION)-$(shell date -u +%Y%m%d)
+    ORCA_VERSION := dev_$(BOARD)-$(VERSION)-$(shell date -u +%Y%m%d)
 else
-    PA_VERSION := $(TARGET_PRODUCT)-$(VERSION)-$(shell date -u +%Y%m%d)
+    ORCA_VERSION := $(TARGET_PRODUCT)-$(VERSION)-$(shell date -u +%Y%m%d)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.modversion=$(PA_VERSION) \
+  ro.modversion=$(ORCA_VERSION) \
   ro.pa.family=$(PA_CONF_SOURCE) \
-  ro.pa.version=$(VERSION) \
+  ro.orca.version=$(VERSION) \
   ro.papref.revision=$(PA_PREF_REVISION) 
 
 
 # goo.im properties
 ifneq ($(DEVELOPER_VERSION),true)
     PRODUCT_PROPERTY_OVERRIDES += \
-      ro.goo.developerid=paranoidandroid \
-      ro.goo.rom=paranoidandroid \
+      ro.goo.developerid=drewgaren \
+      ro.goo.rom=Orca_Nightlies \
       ro.goo.version=$(shell date +%s)
 endif
