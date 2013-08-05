@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Check for target product
-ifeq (orca_mako,$(TARGET_PRODUCT))
+# Inherit AOSP device configuration
+$(call inherit-product, device/lge/mako/full_mako.mk)
 
 # Define Orca bootanimation size
 ORCA_BOOTANIMATION_NAME := XHDPI
@@ -30,22 +30,9 @@ include vendor/orca/config/orca_common.mk
 # Inherit GSM common stuff
 $(call inherit-product, vendor/orca/config/gsm.mk)
 
-# Inherit AOSP device configuration
-$(call inherit-product, device/lge/mako/full_mako.mk)
-
-# Product Package Extras - Repos can be added manually or via addprojects.py
--include vendor/orca/packages/mako.mk
-
 # Override AOSP build properties
 PRODUCT_NAME := orca_mako
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=occam BUILD_FINGERPRINT="google/occam/mako:4.3/JSS15J/737497:user/release-keys" PRIVATE_BUILD_DESC="occam-user 4.3 JSS15J 737497 release-keys"
-
-# Update local_manifest.xml
-GET_VENDOR_PROPS := $(shell vendor/orca/tools/getvendorprops.py $(PRODUCT_NAME))
-GET_PROJECT_RMS := $(shell vendor/orca/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/orca/tools/addprojects.py $(PRODUCT_NAME))
-
-endif
