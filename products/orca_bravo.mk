@@ -1,4 +1,4 @@
-# Copyright (C) 2012 ParanoidAndroid Project
+# Copyright (C) 2013 The Orca Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,10 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_bravo,$(TARGET_PRODUCT))
+ifeq (orca_bravo,$(TARGET_PRODUCT))
 
-# Define PA bootanimation size
-PARANOID_BOOTANIMATION_NAME := HDPI
+# Define Orca bootanimation size
+ORCA_BOOTANIMATION_NAME := HDPI
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_hdpi
@@ -24,8 +24,8 @@ OVERLAY_TARGET := pa_hdpi
 # Build paprefs from sources
 PREFS_FROM_SOURCE ?= false
 
-# Include ParanoidAndroid common configuration
-include vendor/pa/config/pa_common.mk
+# Include Orca common configuration
+include vendor/orca/config/orca_common.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/htc/bravo/full_bravo.mk)
@@ -34,7 +34,7 @@ $(call inherit-product, device/htc/bravo/full_bravo.mk)
 -include vendor/pa/packages/cm.mk
 
 # Override AOSP build properties
-PRODUCT_NAME    := pa_bravo
+PRODUCT_NAME    := orca_bravo
 PRODUCT_BRAND   := htc_wwe
 PRODUCT_DEVICE  := bravo
 PRODUCT_MODEL   := HTC Desire

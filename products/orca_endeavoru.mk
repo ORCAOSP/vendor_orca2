@@ -1,4 +1,4 @@
-# Copyright (C) 2012 ParanoidAndroid Project
+# Copyright (C) 2013 The Orca Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,10 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_endeavoru,$(TARGET_PRODUCT))
+ifeq (orca_endeavoru,$(TARGET_PRODUCT))
 
-# Define PA bootanimation size
-PARANOID_BOOTANIMATION_NAME := XHDPI
+# Define Orca bootanimation size
+ORCA_BOOTANIMATION_NAME := XHDPI
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_xhdpi
@@ -24,20 +24,20 @@ OVERLAY_TARGET := pa_xhdpi
 # Build paprefs from sources
 PREFS_FROM_SOURCE := false
 
-# Include ParanoidAndroid common configuration
-include vendor/pa/config/pa_common.mk
+# Include Orca common configuration
+include vendor/orca/config/orca_common.mk
 
 # Inherit AOSP device configuration
 $(call inherit-product, device/htc/endeavoru/full_endeavoru.mk)
 
 # Product Package Extras - Repos can be added manually or via addprojects.py
--include vendor/pa/packages/endeavoru.mk
+-include vendor/orca/packages/endeavoru.mk
 
 # CM Extras
--include vendor/pa/packages/cm.mk
+-include vendor/orca/packages/cm.mk
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_endeavoru
+PRODUCT_NAME := orca_endeavoru
 PRODUCT_BRAND := htc
 PRODUCT_MODEL := HTC One X
 PRODUCT_MANUFACTURER := HTC
@@ -45,9 +45,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=endeavoru BUILD_FINGERPRINT="htc_eu
 PRIVATE_BUILD_DESC="3.14.401.27 CL128187 release-keys"
 
 # Update local_manifest.xml
-GET_VENDOR_PROPS := $(shell vendor/pa/tools/getvendorprops.py $(PRODUCT_NAME))
-GET_PROJECT_RMS := $(shell vendor/pa/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py $(PRODUCT_NAME))
+GET_VENDOR_PROPS := $(shell vendor/orca/tools/getvendorprops.py $(PRODUCT_NAME))
+GET_PROJECT_RMS := $(shell vendor/orca/tools/removeprojects.py $(PRODUCT_NAME))
+GET_PROJECT_ADDS := $(shell vendor/orca/tools/addprojects.py $(PRODUCT_NAME))
 
 endif
 

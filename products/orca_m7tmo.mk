@@ -1,4 +1,4 @@
-# Copyright (C) 2012 ParanoidAndroid Project
+# Copyright (C) 2013 The Orca Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,10 @@
 # limitations under the License.
 
 # Check for target product
-ifeq (pa_m7tmo,$(TARGET_PRODUCT))
+ifeq (orca_m7tmo,$(TARGET_PRODUCT))
 
-# Define PA bootanimation size
-PARANOID_BOOTANIMATION_NAME := XHDPI
+# Define Orca bootanimation size
+ORCA_BOOTANIMATION_NAME := XHDPI
 
 # OVERLAY_TARGET adds overlay asset source
 OVERLAY_TARGET := pa_xxhdpi
@@ -25,23 +25,23 @@ OVERLAY_TARGET := pa_xxhdpi
 PREFS_FROM_SOURCE := true
 
 # Include ParanoidAndroid common configuration
-include vendor/pa/config/pa_common.mk
+include vendor/orca/config/orca_common.mk
 
 $(call inherit-product, device/htc/m7tmo/full_m7tmo.mk)
 
 # CM Extras
--include vendor/pa/packages/cm.mk
+-include vendor/orca/packages/cm.mk
 
 # Override AOSP build properties
-PRODUCT_NAME := pa_m7tmo
+PRODUCT_NAME := orca_m7tmo
 PRODUCT_BRAND := htc
 PRODUCT_MODEL := HTC One
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=m7 BUILD_ID=JZO54K BUILD_FINGERPRINT="tmous/m7/m7:4.1.2/JZO54K/170484.7:user/release-keys" PRIVATE_BUILD_DESC="1.27.531.7 CL170484 release-keys"
 
 # Update local_manifest.xml
-GET_VENDOR_PROPS := $(shell vendor/pa/tools/getvendorprops.py $(PRODUCT_NAME))
-GET_PROJECT_RMS := $(shell vendor/pa/tools/removeprojects.py $(PRODUCT_NAME))
-GET_PROJECT_ADDS := $(shell vendor/pa/tools/addprojects.py $(PRODUCT_NAME))
+GET_VENDOR_PROPS := $(shell vendor/orca/tools/getvendorprops.py $(PRODUCT_NAME))
+GET_PROJECT_RMS := $(shell vendor/orca/tools/removeprojects.py $(PRODUCT_NAME))
+GET_PROJECT_ADDS := $(shell vendor/orca/tools/addprojects.py $(PRODUCT_NAME))
 
 endif
