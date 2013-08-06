@@ -54,7 +54,7 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(ORCA_BOOTANIMATION_NAME),)
     PRODUCT_COPY_FILES += \
-        vendor/orca/prebuilt/common/bootanimation/$(PARANOID_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+        vendor/orca/prebuilt/common/bootanimation/$(ORCA_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 else
     PRODUCT_COPY_FILES += \
         vendor/orca/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
