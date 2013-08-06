@@ -5,17 +5,16 @@
 #
 
 OUT_TARGET_HOST=`uname -a | grep Darwin`
-if [ -z "$OUT_TARGET_HOST" ]
-then
-   OUT_TARGET_HOST=linux-x86
-   MD5=md5sum
-   XARGS="xargs --max-args=1 --max-procs `grep 'processor' /proc/cpuinfo|wc -l`"
-   SED=sed
+if [ -z "$OUT_TARGET_HOST" ]; then
+	OUT_TARGET_HOST=linux-x86
+	MD5=md5sum
+	XARGS="xargs --max-args=1 --max-procs `grep 'processor' /proc/cpuinfo|wc -l`"
+	SED=sed
 else
-   OUT_TARGET_HOST=darwin-x86
-   MD5=md5
-   XARGS="xargs -n 1 -P `sysctl hw.ncpu | awk '{print $2}'`"
-   SED=gsed
+	OUT_TARGET_HOST=darwin-x86
+	MD5=md5
+	XARGS="xargs -n 1 -P `sysctl hw.ncpu | awk '{print $2}'`"
+	SED=gsed
 fi
 
 if [ -z "$OUT" -o ! -d "$OUT" ]; then
@@ -24,11 +23,11 @@ if [ -z "$OUT" -o ! -d "$OUT" ]; then
 fi
 
 if [ "$TARGET_BUILD_TYPE" = "debug" ]; then
-    OTAPACKAGE=$OUT/${TARGET_PRODUCT}_debug-ota-$TARGET_BUILD_VARIANT.$USER.zip
+	OTAPACKAGE=$OUT/${TARGET_PRODUCT}_debug-ota-$TARGET_BUILD_VARIANT.$USER.zip
 elif [ "$TARGET_BUILD_VARIANT" = "userdebug" ]; then
-    OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-eng.$USER.zip
+	OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-eng.$USER.zip
 else
-    OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$USER.zip
+	OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$USER.zip
 fi
 
 if [ ! -f "$OTAPACKAGE" ]; then
@@ -66,7 +65,7 @@ $SED -i \
 	-e '/ro\.build\.type/s/eng/user/' \
 	$REPACK/ota/system/build.prop
 
-# Delete Orca specific files
+# Delete ParanoidAndroid specific files
 if [ -f $ANDROID_BUILD_TOP/vendor/orca/tools/squisher.rm ]; then
 	for RM_FILE in `cat $ANDROID_BUILD_TOP/vendor/orca/tools/squisher.rm`; do
 		rm -f $REPACK/ota/$RM_FILE
@@ -88,7 +87,7 @@ rm -rf $REPACK/ota/recovery
 
 # Strip modules
 [ -d $REPACK/ota/system/lib/modules ] && \
-	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
+	find $REPACK/ota/system/lib/modules -name "*.ko" -exec -0 arm-eabi-strip --strip-unneeded '{}' \;
 
 # Determine what to name the new signed package
 if [ -z "$CYANOGEN_NIGHTLY" ]; then
@@ -106,8 +105,8 @@ printf "Copying overlay preferences for $OVERLAYTARGET..."
 echo
 mkdir $REPACK/ota/system/etc/paranoid/preferences
 mkdir $REPACK/ota/system/etc/paranoid/preferences/images
-cp -r $ANDROID_BUILD_TOP/vendor/orca/prebuilt/preferences/images/* $REPACK/ota/system/etc/paranoid/preferences/images/
-cp -r $ANDROID_BUILD_TOP/vendor/orca/prebuilt/preferences/$OVERLAYTARGET/* $REPACK/ota/system/etc/paranoid/preferences/
+cp -r $ANDROID_BUILD_TOP/vendor/pa/prebuilt/preferences/images/* $REPACK/ota/system/etc/paranoid/preferences/images/
+cp -r $ANDROID_BUILD_TOP/vendor/pa/prebuilt/preferences/$OVERLAYTARGET/* $REPACK/ota/system/etc/paranoid/preferences/
 echo "ro.pa=true"  >> $REPACK/ota/system/build.prop
 
 # Inject build manifest
@@ -141,6 +140,6 @@ echo
 )
 
 echo $OUTFILE > $OUT/romPath
-echo $ORCAVERSION.zip > $OUT/romName
+echo $PAVERSION.zip > $OUT/romName
 
 exit 0

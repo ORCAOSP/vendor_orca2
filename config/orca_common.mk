@@ -60,10 +60,17 @@ else
         vendor/orca/prebuilt/common/bootanimation/XHDPI.zip:system/media/bootanimation.zip
 endif
 
-# embed superuser into settings 
+# Embed superuser into settings
 SUPERUSER_EMBEDDED := true
- PRODUCT_PACKAGES += \
-        su
+
+# Enable root for adb+apps
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=3
+
+# Superuser
+PRODUCT_PACKAGES += \
+    su
+    
 # device common prebuilts
 ifneq ($(DEVICE_COMMON),)
     -include vendor/orca/prebuilt/$(DEVICE_COMMON)/prebuilt.mk
@@ -74,9 +81,9 @@ endif
 
 BOARD := $(subst orca_,,$(TARGET_PRODUCT))
 
-# ParanoidAndroid Overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/common
-PRODUCT_PACKAGE_OVERLAYS += vendor/pa/overlay/$(TARGET_PRODUCT)
+# Overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/orca/overlay/$(TARGET_PRODUCT)
 
 # Allow device family to add overlays and use a same prop.conf
 ifneq ($(OVERLAY_TARGET),)
